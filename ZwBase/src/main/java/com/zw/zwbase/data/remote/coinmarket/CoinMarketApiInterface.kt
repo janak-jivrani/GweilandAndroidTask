@@ -1,6 +1,5 @@
 package com.zw.zwbase.data.remote.coinmarket
 
-import com.google.gson.JsonObject
 import com.skydoves.sandwich.ApiResponse
 import com.zw.zwbase.domain.CoinInfoResponse
 import com.zw.zwbase.domain.LatestListingResponse
@@ -20,6 +19,6 @@ interface CoinMarketApiInterface {
     suspend fun getLatestListing(@Query("start") start: Int,@Query("limit") limit: Int,@Query("convert") convert:String, @Query("sort") sort: String): ApiResponse<LatestListingResponse>
 
     @GET("info")
-    suspend fun getCoinInfo(@Query("id") id: Int): ApiResponse<CoinInfoResponse>
+    suspend fun getCoinInfo(@Query("id") id: String): ApiResponse<CoinInfoResponse>
 
 }//listings/latest

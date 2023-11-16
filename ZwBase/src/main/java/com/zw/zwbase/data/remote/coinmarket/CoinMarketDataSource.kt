@@ -9,5 +9,5 @@ import com.zw.zwbase.domain.OTPResponse
 interface CoinMarketDataSource {
     suspend fun getLatestListing(start: Int, limit: Int, convert:String, sort: String): ApiResponse<LatestListingResponse>
 
-    suspend fun getCoinInfo(id: Int) : ApiResponse<CoinInfoResponse>
+    suspend fun getCoinInfo(id: String) : ApiResponse<CoinInfoResponse>
 }

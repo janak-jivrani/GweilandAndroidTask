@@ -1,8 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintTop_toTopOf="@id/top_guideline">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/grey_round_bg"
+                android:drawableStart="@drawable/search_icon"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/inder"
+                android:gravity="center_vertical"
+                android:hint="Search Cryptocurrency"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_14sdp"
+                android:textColor="@color/black_text"
+                android:textColorHint="@color/grey_text"
+                android:textSize="@dimen/_12sdp"
+                android:inputType="text"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnFilter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/btnFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_outline_grey_bg"
+                android:drawableStart="@drawable/filter_icon"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/inder"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/_40sdp"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:text="Filter"
+                android:textColor="@color/grey_text"
+                android:textColorHint="@color/grey_text"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/zRyptoCurrencies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/inder"
+            android:text="CryptoCurrencies"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/zNFT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:fontFamily="@font/inder"
+            android:text="NFT"
+            android:textColor="#800B0B0B"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/zRyptoCurrencies"
+            app:layout_constraintStart_toEndOf="@+id/zRyptoCurrencies"
+            app:layout_constraintTop_toTopOf="@+id/zRyptoCurrencies" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:elevation="0dp"
+            app:cardBackgroundColor="@color/green_transparent"
+            app:cardCornerRadius="@dimen/_17sdp"
+            app:cardElevation="0dp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toEndOf="@id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@id/zRyptoCurrencies">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/shapeableImageView"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:src="@drawable/currency_icon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/circleImageView" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/zCurrencyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/inder"
+                        android:text="BTC"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        app:layout_constrainedWidth="true"
+                        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+                        app:layout_constraintTop_toTopOf="@+id/shapeableImageView" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/zAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inder"
+                        android:text="$55,000 USD"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold"
+                        app:layout_constrainedWidth="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/zCurrencyName" />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/Currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/inder"
+                        android:text="Bitcoin"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+                        app:layout_constraintStart_toEndOf="@+id/shapeableImageView" />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/TrendAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inder"
+                        android:text="+2.5%"
+                        android:textColor="@color/green_text"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/Currency"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/Currency" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/chart_preview"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/inder"
+            android:text="Top CryptoCurrencies"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@+id/materialTextView2"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inder"
+            android:text="View All"
+            android:textColor="#800B0B0B"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/materialTextView"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+            app:layout_constraintTop_toTopOf="@+id/materialTextView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCurrencies"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@id/materialTextView"
+            tools:listitem="@layout/crypto_currencies_item" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.03" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

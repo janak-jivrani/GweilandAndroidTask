@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/CustomCardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inder"
+                android:text="Filter"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Market Cap"
+                    app:buttonTint="@color/grey" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    app:buttonTint="@color/grey" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Volume 24H"
+                    app:buttonTint="@color/grey" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Market Cap"
+                    app:buttonTint="@color/grey" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    app:buttonTint="@color/grey" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Volume 24H"
+                    app:buttonTint="@color/grey" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Market Cap"
+                    app:buttonTint="@color/grey" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    app:buttonTint="@color/grey" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Volume 24H"
+                    app:buttonTint="@color/grey" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

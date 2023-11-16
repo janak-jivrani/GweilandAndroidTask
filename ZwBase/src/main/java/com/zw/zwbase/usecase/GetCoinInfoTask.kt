@@ -7,5 +7,5 @@ import com.zw.zwbase.domain.LatestListingResponse
 import javax.inject.Inject
 
 class GetCoinInfoTask @Inject constructor(private val coinMarketDataSource: CoinMarketDataSource) {
-    suspend fun invoke(id: Int): ApiResponse<CoinInfoResponse> = coinMarketDataSource.getCoinInfo(id)
+    suspend fun invoke(id: String): ApiResponse<CoinInfoResponse> = coinMarketDataSource.getCoinInfo(id)
 }

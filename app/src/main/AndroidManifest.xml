@@ -28,15 +28,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
-       <!-- <receiver
-            android:name=".core.MessageBroadcastReceiver"
-            android:exported="true">
-            &lt;!&ndash; adding intent filter as sms received &ndash;&gt;
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>-->
+        <!-- <receiver
+             android:name=".core.MessageBroadcastReceiver"
+             android:exported="true">
+             &lt;!&ndash; adding intent filter as sms received &ndash;&gt;
+             <intent-filter>
+                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+             </intent-filter>
+         </receiver>-->
 
     </application>
 

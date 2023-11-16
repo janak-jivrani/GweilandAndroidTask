@@ -42,6 +42,8 @@ data class LatestListingResponse(
         @Json(name = "last_updated") var last_updated: String?,
         @Json(name = "quote") var quote: Quote
     ) {
+
+        var coinInfoData: CoinInfoResponse.Data?=null
         @JsonClass(generateAdapter = true)
         data class Quote(@Json(name = "USD") var usd: USD?) {
             @JsonClass(generateAdapter = true)

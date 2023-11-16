@@ -73,6 +73,7 @@ dependencies {
     api("androidx.compose.material3:material3:1.1.2")
     api("androidx.navigation:navigation-compose:2.7.4")
     api("androidx.core:core-animation:1.0.0-rc01")
+    api("androidx.fragment:fragment-ktx:1.6.0")
 
     debugImplementation("androidx.compose.ui:ui-tooling:1.5.3")
 
@@ -105,6 +106,7 @@ dependencies {
     api("io.coil-kt:coil-compose:$coilVersion")
     api("com.github.skydoves:landscapist-coil:1.5.1")
     api("io.coil-kt:coil-gif:$coilVersion")
+    api("io.coil-kt:coil:$coilVersion")
 
     val timberVersion = "5.0.1"
     api("com.jakewharton.timber:timber:$timberVersion")
