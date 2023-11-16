@@ -31,8 +31,8 @@ data class LatestListingResponse(
         @Json(name = "date_added") var date_added: String,
         @Json(name = "tags") var tags: List<String> = ArrayList(),
         @Json(name = "max_supply") var max_supply: Long? = 0,
-        @Json(name = "circulating_supply") var circulating_supply: Long? = 0,
-        @Json(name = "total_supply") var total_supply: Long,
+        @Json(name = "circulating_supply") var circulating_supply: Double? = 0.0,
+        @Json(name = "total_supply") var total_supply: Double?,
         @Json(name = "infinite_supply") var infinite_supply: Boolean? = false,
         @Json(name = "platform") var platform: Any? = null,
         @Json(name = "cmc_rank") var cmc_rank: Int? = 0,
@@ -40,32 +40,31 @@ data class LatestListingResponse(
         @Json(name = "self_reported_market_cap") var self_reported_market_cap: Any? = null,
         @Json(name = "tvl_ratio") var tvl_ratio: Any? = null,
         @Json(name = "last_updated") var last_updated: String?,
-        @Json(name = "quote") var quote: Quote
-    ) {
-
-        var coinInfoData: CoinInfoResponse.Data?=null
-        @JsonClass(generateAdapter = true)
-        data class Quote(@Json(name = "USD") var usd: USD?) {
-            @JsonClass(generateAdapter = true)
-            data class USD(
-                @Json(name = "price") var price: Double?,
-                @Json(name = "volume_24h") var volume_24h: Double?,
-                @Json(name = "volume_change_24h") var volume_change_24h: Double?,
-                @Json(name = "percent_change_1h") var percent_change_1h: Double?,
-                @Json(name = "percent_change_24h") var percent_change_24h: Double?,
-                @Json(name = "percent_change_7d") var percent_change_7d: Double?,
-                @Json(name = "percent_change_30d") var percent_change_30d: Double?,
-                @Json(name = "percent_change_60d") var percent_change_60d: Double?,
-                @Json(name = "percent_change_90d") var percent_change_90d: Double?,
-                @Json(name = "market_cap") var market_cap: Double?,
-                @Json(name = "market_cap_dominance") var market_cap_dominance: Double?,
-                @Json(name = "fully_diluted_market_cap") var fully_diluted_market_cap: Double?,
-                @Json(name = "tvl") var tvl: Any? = null,
-                @Json(name = "last_updated") var last_updated: String?
-            )
-        }
-
+        @Json(name = "quote") var quote: Quote?
+    ): Serializable {
+        var coinInfoData: Data?=null
     }
+
+    @JsonClass(generateAdapter = true)
+    data class Quote(@Json(name = "USD") var usd: USD?): Serializable
+    @JsonClass(generateAdapter = true)
+    data class USD(
+        @Json(name = "price") var price: Double?,
+        @Json(name = "volume_24h") var volume_24h: Double?,
+        @Json(name = "volume_change_24h") var volume_change_24h: Double?,
+        @Json(name = "percent_change_1h") var percent_change_1h: Double?,
+        @Json(name = "percent_change_24h") var percent_change_24h: Double?,
+        @Json(name = "percent_change_7d") var percent_change_7d: Double?,
+        @Json(name = "percent_change_30d") var percent_change_30d: Double?,
+        @Json(name = "percent_change_60d") var percent_change_60d: Double?,
+        @Json(name = "percent_change_90d") var percent_change_90d: Double?,
+        @Json(name = "market_cap") var market_cap: Double?,
+        @Json(name = "market_cap_dominance") var market_cap_dominance: Double?,
+        @Json(name = "fully_diluted_market_cap") var fully_diluted_market_cap: Double?,
+        @Json(name = "tvl") var tvl: Any? = null,
+        @Json(name = "last_updated") var last_updated: String?
+    ):
+        Serializable
 }
 
 

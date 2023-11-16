@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-         <variable
-            name="currency"
+        <variable
+            name="dataItem"
             type="com.zw.zwbase.domain.LatestListingResponse.DataItem" />
 
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:fontFamily="@font/inder"
-            android:text="@{currency.symbol}"
+            android:text="@{dataItem.symbol}"
             android:textColor="@color/black_text"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
@@ -45,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:src="@{currency.quote.usd.percent_change_24h>0 ? @drawable/chart_green_line : @drawable/chart_red_line}"
+            android:src="@{dataItem.quote.usd.percent_change_24h>0 ? @drawable/chart_green_line : @drawable/chart_red_line}"
             app:layout_constraintBottom_toBottomOf="@+id/zCurrencyName"
             app:layout_constraintStart_toEndOf="@+id/zCurrencyName"
             app:layout_constraintTop_toTopOf="@+id/zCurrencyName"
@@ -57,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inder"
-            android:text="@{`$`+currency.symbol}"
+            android:text="@{`$`+dataItem.Quote.usd.price}"
             android:textColor="@color/black_text"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
@@ -73,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:fontFamily="@font/inder"
-            android:text="@{currency.name}"
+            android:text="@{dataItem.name}"
             android:textColor="#800B0B0B"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
@@ -86,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inder"
-            android:text="@{String.valueOf(currency.quote.usd.percent_change_24h)}"
+            android:text="@{String.valueOf(dataItem.quote.usd.percent_change_24h)}"
             android:textColor="@color/red_text"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="@+id/Currency"
@@ -96,3 +95,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+

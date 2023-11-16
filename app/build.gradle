@@ -38,8 +38,8 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     buildFeatures {
-        compose true
-        dataBinding true
+        compose  = true
+        dataBinding = true
     }
 
     composeOptions {

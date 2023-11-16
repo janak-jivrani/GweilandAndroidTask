@@ -238,12 +238,12 @@ object NetworkModule {
     @Singleton
     fun provideCoinMarketApiInterface(moshi: Moshi,loggingInterceptor: HttpLoggingInterceptor): CoinMarketApiInterface {
         val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
             .addInterceptor {
                 var request: Request = it.request()
                 request = request.newBuilder().addHeader("X-CMC_PRO_API_KEY", Constant.COIN_MARKET_API_KEY).build()
                 it.proceed(request)
             }
+            .addInterceptor(loggingInterceptor)
             .connectTimeout(60, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
             .writeTimeout(60, TimeUnit.SECONDS)
