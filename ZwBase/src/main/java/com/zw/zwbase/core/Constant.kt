@@ -9,4 +9,7 @@ object Constant {
     const val PASS_LOCATION_DATA = "pass_location_data"
     const val PREF_HOME_LOCATION = "PREF_HOME_LOCATION"
 
+    const val COIN_MARKET_BASE_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/";
+    const val COIN_MARKET_API_KEY = "eff57e9d-ded1-4303-8474-3bd2f941f048"
+
 }

@@ -21,7 +21,7 @@ import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.zw.zwbase.BuildConfig
 import com.zw.zwbase.core.Constant
-import com.zw.zwbase.core.NetworkConfig
+import com.zw.zwbase.data.remote.coinmarket.CoinMarketApiInterface
 import com.zw.zwbase.data.remote.OTPApiInterface
 import com.zw.zwbase.data.remote.languagetool.LanguageToolApiInterface
 import dagger.Module
@@ -30,6 +30,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -231,6 +232,30 @@ object NetworkModule {
             .baseUrl(Constant.BASE_URL/*BuildConfig.BASE_URL*/)
             .build()
         return retrofit.create(LanguageToolApiInterface::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCoinMarketApiInterface(moshi: Moshi,loggingInterceptor: HttpLoggingInterceptor): CoinMarketApiInterface {
+        val okHttpClient = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor {
+                var request: Request = it.request()
+                request = request.newBuilder().addHeader("X-CMC_PRO_API_KEY", Constant.COIN_MARKET_API_KEY).build()
+                it.proceed(request)
+            }
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .build()
+        val retrofit = Retrofit.Builder()
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
+            .baseUrl(Constant.COIN_MARKET_BASE_URL)
+            .build()
+        return retrofit.create(CoinMarketApiInterface::class.java)
     }
 
     /*@Provides
