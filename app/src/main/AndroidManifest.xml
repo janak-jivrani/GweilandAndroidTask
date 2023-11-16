@@ -5,8 +5,8 @@
         android:name="android.hardware.telephony"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
+    <!--<uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />-->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
@@ -20,7 +20,7 @@
         android:theme="@style/Theme.App.Starting">
 
         <activity
-            android:name=".presentation.ui.DashboardActivity"
+            android:name=".presentation.ui.HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>
@@ -29,14 +29,14 @@
             </intent-filter>
         </activity>
 
-        <receiver
+       <!-- <receiver
             android:name=".core.MessageBroadcastReceiver"
             android:exported="true">
-            <!-- adding intent filter as sms received -->
+            &lt;!&ndash; adding intent filter as sms received &ndash;&gt;
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
     </application>
 
